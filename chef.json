@@ -1,0 +1,120 @@
+{
+  "graylog2": {
+    "password_secret": "SOG1Rm2YVHIOmFPJv5U8tkw1LVSTSpjgUvh3z6qX5T4gieNcuFlxKWdnYcuW1tNEaWir2AaAWWo7VObYVZbE9GvKLbTDH3CQ",
+    "root_password_sha2": "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918",
+    "server": {
+      "java_opts": "-Djava.net.preferIPv4Stack=true -Xms128m -Xmx512m -XX:NewRatio=1 -XX:PermSize=64m -XX:MaxPermSize=256m -server -XX:+ResizeTLAB -XX:+UseConcMarkSweepGC -XX:+CMSConcurrentMTEnabled -XX:+CMSClassUnloadingEnabled -XX:+UseParNewGC -XX:-OmitStackTraceInFastThrow"
+    },
+    "web": {
+      "secret": "ZGrrlMoBDpg9yVrP0gAhbznvUbxQLh5LUyAPz79EULPqlZ1SWDm2Q7uctbL7W2bSgFqeBjvawC4DMPG0JkijA9Imch6ZvOwk"
+    },
+    "seed": {
+      "inputs": [
+        {
+          "title" : "GELF TCP",
+          "global" : false,
+          "configuration" : {
+            "port" : 12201,
+            "bind_address" : "0.0.0.0",
+            "recv_buffer_size" : 1048576,
+            "max_message_size" : 2097152
+          },
+          "type" : "org.graylog2.inputs.gelf.tcp.GELFTCPInput"
+        },
+        {
+          "title" : "GELF HTTP",
+          "global" : false,
+          "configuration" : {
+            "port" : 12202,
+            "bind_address" : "0.0.0.0",
+            "recv_buffer_size" : 1048576,
+            "max_chunk_size" : 65536,
+            "enable_cors" : true
+          },
+          "type" : "org.graylog2.inputs.gelf.http.GELFHttpInput"
+        },
+        {
+          "title" : "Syslog",
+          "global" : false,
+          "configuration" : {
+            "port" : 5140,
+            "allow_override_date" : true,
+            "bind_address" : "0.0.0.0",
+            "recv_buffer_size" : 1048576,
+            "max_message_size" : 2097152
+          },
+          "type" : "org.graylog2.inputs.syslog.tcp.SyslogTCPInput"
+        }
+      ],
+      "streams": [
+        {
+          "title": "Chef Events",
+          "description": "All Chef related events",
+          "rules": [
+            {
+              "field": "chef_run_id",
+              "value": "",
+              "type": 5,
+              "inverted": false
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "icinga2": {
+    "version": "2.3.4-1",
+    "classic_ui": {
+      "version": "2.3.4-1",
+      "enable": false
+    },
+    "web2": {
+      "enable": true,
+      "setup_token": "q11TeamSy+QW2ltx",
+      "db_name": "icingaweb_db",
+      "db_user": "icingaweb2",
+      "db_password": "Go2Rohgh",
+      "db_host": "127.0.0.1",
+      "db_type": "MySQL"
+    },
+    "ido": {
+      "db_host": "127.0.0.1",
+      "db_user": "icinga2",
+      "db_password": "keeLae0r",
+      "db_name": "icinga2_ido",
+      "load_schema": true
+    }
+  },
+  "apache": {
+    "mpm": "prefork"
+  },
+  "mysql": {
+    "server_root_password": "shu2Ohv7",
+    "enable_utf8": true
+  },
+  "rsyslog": {
+    "server_ip": "10.0.0.10",
+    "port": 5140,
+    "protocol": "tcp"
+  },
+  "java": {
+    "jdk_version": "7",
+    "install_flavor": "openjdk"
+  },
+  "elasticsearch": {
+    "version": "1.5.1",
+    "allocated_memory": "512m",
+    "cluster": {
+      "name": "graylog2"
+    },
+    "discovery": {
+      "zen": {
+        "ping": {
+          "multicast": {
+            "enabled": false
+          }
+        }
+      }
+    }
+  }
+}
