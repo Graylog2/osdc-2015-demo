@@ -37,7 +37,10 @@ Vagrant.configure(2) do |config|
     end
 
     machine.vm.provision 'chef_zero' do |chef|
+      chef.json = JSON.parse(File.read('chef.json'))
       chef.add_recipe 'osdc-2015-demo::default'
+      chef.add_recipe 'osdc-2015-demo::chef'
+      chef.add_recipe 'osdc-2015-demo::webserver'
     end
   end
 end

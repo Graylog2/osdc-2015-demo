@@ -1,0 +1,12 @@
+# WARNING: Managed by Chef. Modifications will be lost!
+
+begin
+  require 'chef/handler/graylog/gelf_start_handler'
+
+  # IP address and port of the GELF HTTP input on your Graylog server.
+  graylog_server_url = '<%= @server_url %>'
+
+  start_handlers << Chef::Handler::Graylog::GelfStartHandler.new(graylog_server_url, :timeout => <%= @timeout %>)
+rescue Object => e
+  Chef::Log.error("Loading Graylog start handler failed: #{e.message}")
+end

@@ -62,6 +62,16 @@
       ]
     }
   },
+  "chef_client": {
+    "gelf_http_url": "http://10.0.0.10:12202/gelf",
+    "interval": 300,
+    "splay": 5,
+    "daemon_options": ["-z"],
+    "config": {
+      "cookbook_path": "/cookbooks",
+      "client_form": true
+    }
+  },
   "icinga2": {
     "version": "2.3.4-1",
     "classic_ui": {
