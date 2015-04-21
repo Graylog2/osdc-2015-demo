@@ -63,35 +63,35 @@
     }
   },
   "chef_client": {
+    "gelf_handler_version": "0.5.0",
     "gelf_http_url": "http://10.0.0.10:12202/gelf",
     "interval": 300,
     "splay": 5,
     "daemon_options": ["-z"],
     "config": {
-      "cookbook_path": "/cookbooks",
+      "cookbook_path": "/vagrant/cookbooks",
       "client_form": true
     }
   },
   "icinga2": {
-    "version": "2.3.4-1",
+    "ignore_version": true,
     "classic_ui": {
-      "version": "2.3.4-1",
       "enable": false
     },
     "web2": {
       "enable": true,
       "setup_token": "q11TeamSy+QW2ltx",
       "db_name": "icingaweb_db",
-      "db_user": "icingaweb2",
-      "db_password": "Go2Rohgh",
+      "db_user": "icingaweb",
+      "db_password": "icingaweb",
       "db_host": "127.0.0.1",
       "db_type": "MySQL"
     },
     "ido": {
       "db_host": "127.0.0.1",
-      "db_user": "icinga2",
-      "db_password": "keeLae0r",
-      "db_name": "icinga2_ido",
+      "db_user": "icinga",
+      "db_password": "icinga",
+      "db_name": "icinga_ido",
       "load_schema": true
     }
   },
@@ -99,7 +99,7 @@
     "mpm": "prefork"
   },
   "mysql": {
-    "server_root_password": "shu2Ohv7",
+    "server_root_password": "root",
     "enable_utf8": true
   },
   "rsyslog": {

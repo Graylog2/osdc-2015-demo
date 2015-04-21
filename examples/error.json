@@ -1,0 +1,22 @@
+{
+  "_chef_version": "12.2.1",
+  "_chef_run_id": "74a2c04b-66f1-47d3-8c36-aaf04d9d9030",
+  "_chef_event_name": "run_failed",
+  "_chef_node_name": "ubuntu1404",
+  "_chef_node_environment": "_default",
+  "_chef_node_roles": "",
+  "_chef_node_recipes": "webapp::default",
+  "_chef_run_start_time": "2015-04-21T21:24:39.969Z",
+  "_chef_run_end_time": "2015-04-21T21:24:41.679Z",
+  "_chef_run_elapsed_time": 1.710085302,
+  "_chef_run_total_resources": 6,
+  "_chef_run_updated_resources": 1,
+  "_chef_run_cookbooks": "webapp",
+  "_chef_error_message": "service[apache2] (webapp::default line 5) had an error: Mixlib::ShellOut::ShellCommandFailed: Expected process to exit with [0], but received '1'\n---- Begin output of /etc/init.d/apache2 start ----\nSTDOUT: * Starting web server apache2\n * \n * The apache2 configtest failed.\nSTDERR: Output of config test was:\napache2: Syntax error on line 219 of /etc/apache2/apache2.conf: Syntax error on line 1 of /etc/apache2/sites-enabled/webapp.conf: /etc/apache2/sites-enabled/webapp.conf:1: <VirtualHost> was not closed.\nAction 'configtest' failed.\nThe Apache error log may have more information.\n---- End output of /etc/init.d/apache2 start ----\nRan /etc/init.d/apache2 start returned 1",
+  "_chef_error_type": "Mixlib::ShellOut::ShellCommandFailed",
+  "_chef_error_backtrace": "/opt/chef/embedded/lib/ruby/gems/2.1.0/gems/mixlib-shellout-2.0.1/lib/mixlib/shellout.rb:278:in `invalid!'\n/opt/chef/embedded/lib/ruby/gems/2.1.0/gems/mixlib-shellout-2.0.1/lib/mixlib/shellout.rb:265:in `error!'\n/opt/chef/embedded/apps/chef/lib/chef/mixin/shell_out.rb:66:in `shell_out_with_systems_locale!'\n/opt/chef/embedded/apps/chef/lib/chef/provider/service/init.rb:59:in `start_service'\n/opt/chef/embedded/apps/chef/lib/chef/provider/service/init.rb:79:in `restart_service'\n/opt/chef/embedded/apps/chef/lib/chef/provider/service.rb:115:in `block in action_restart'\n/opt/chef/embedded/apps/chef/lib/chef/mixin/why_run.rb:52:in `call'\n/opt/chef/embedded/apps/chef/lib/chef/mixin/why_run.rb:52:in `add_action'\n/opt/chef/embedded/apps/chef/lib/chef/provider.rb:180:in `converge_by'\n/opt/chef/embedded/apps/chef/lib/chef/provider/service.rb:114:in `action_restart'\n/opt/chef/embedded/apps/chef/lib/chef/provider.rb:145:in `run_action'\n/opt/chef/embedded/apps/chef/lib/chef/resource.rb:561:in `run_action'\n/opt/chef/embedded/apps/chef/lib/chef/runner.rb:49:in `run_action'\n/opt/chef/embedded/apps/chef/lib/chef/runner.rb:111:in `run_delayed_notification'\n/opt/chef/embedded/apps/chef/lib/chef/runner.rb:99:in `block in run_delayed_notifications'\n/opt/chef/embedded/apps/chef/lib/chef/runner.rb:98:in `each'\n/opt/chef/embedded/apps/chef/lib/chef/runner.rb:98:in `run_delayed_notifications'\n/opt/chef/embedded/apps/chef/lib/chef/runner.rb:88:in `converge'\n/opt/chef/embedded/apps/chef/lib/chef/client.rb:331:in `block in converge'\n/opt/chef/embedded/apps/chef/lib/chef/client.rb:326:in `catch'\n/opt/chef/embedded/apps/chef/lib/chef/client.rb:326:in `converge'\n/opt/chef/embedded/apps/chef/lib/chef/client.rb:345:in `converge_and_save'\n/opt/chef/embedded/apps/chef/lib/chef/client.rb:449:in `run'\n/opt/chef/embedded/apps/chef/lib/chef/application.rb:271:in `block in fork_chef_client'\n/opt/chef/embedded/apps/chef/lib/chef/application.rb:259:in `fork'\n/opt/chef/embedded/apps/chef/lib/chef/application.rb:259:in `fork_chef_client'\n/opt/chef/embedded/apps/chef/lib/chef/application.rb:225:in `block in run_chef_client'\n/opt/chef/embedded/apps/chef/lib/chef/local_mode.rb:38:in `with_server_connectivity'\n/opt/chef/embedded/apps/chef/lib/chef/application.rb:213:in `run_chef_client'\n/opt/chef/embedded/apps/chef/lib/chef/application/client.rb:392:in `block in interval_run_chef_client'\n/opt/chef/embedded/apps/chef/lib/chef/application/client.rb:382:in `loop'\n/opt/chef/embedded/apps/chef/lib/chef/application/client.rb:382:in `interval_run_chef_client'\n/opt/chef/embedded/apps/chef/lib/chef/application/client.rb:372:in `run_application'\n/opt/chef/embedded/apps/chef/lib/chef/application.rb:60:in `run'\n/opt/chef/embedded/apps/chef/bin/chef-client:26:in `<top (required)>'\n/usr/bin/chef-client:51:in `load'\n/usr/bin/chef-client:51:in `<main>'",
+  "version": "1.1",
+  "timestamp": 1429651481.684527,
+  "host": "ubuntu1404",
+  "short_message": "Chef run failed on node ubuntu1404"
+}

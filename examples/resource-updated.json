@@ -1,0 +1,22 @@
+{
+  "_chef_version": "12.2.1",
+  "_chef_run_id": "a0b68697-9286-4193-9569-1a1939a24c5f",
+  "_chef_event_name": "resource_updated",
+  "_chef_node_name": "ubuntu1404",
+  "_chef_node_environment": "_default",
+  "_chef_node_roles": "",
+  "_chef_node_recipes": "webapp::default",
+  "_chef_resource_action": "create",
+  "_chef_resource_identity": "/etc/apache2/sites-enabled/webapp.conf",
+  "_chef_resource_name": "template",
+  "_chef_resource_cookbook_name": "webapp",
+  "_chef_resource_cookbook_version": "0.1.0",
+  "_chef_resource_recipe_name": "default",
+  "_chef_resource_declared_type": "template",
+  "_chef_resource_defined_at": "webapp::default line 18",
+  "_chef_resource_duration": 0,
+  "version": "1.1",
+  "timestamp": 1429651713.1174529,
+  "host": "ubuntu1404",
+  "short_message": "Resource updated: template"
+}

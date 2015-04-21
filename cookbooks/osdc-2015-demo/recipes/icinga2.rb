@@ -43,6 +43,9 @@ mysql_database_user node['icinga2']['web2']['db_user'] do
   action        [:create, :grant]
 end
 
+include_recipe 'icinga2::server'
+include_recipe 'icinga2::server_web2'
+
 icinga2_idomysqlconnection 'idomysqlconnection' do
   library   'db_ido_mysql'
   host      node['icinga2']['ido']['db_host']
@@ -51,9 +54,6 @@ icinga2_idomysqlconnection 'idomysqlconnection' do
   password  node['icinga2']['ido']['db_password']
   database  node['icinga2']['ido']['db_name']
 end
-
-include_recipe 'icinga2::server'
-include_recipe 'icinga2::server_web2'
 
 file '/etc/php5/apache2/conf.d/99-timezone.ini' do
   content "date.timezone = Europe/Berlin\n"
@@ -73,4 +73,30 @@ icinga2_gelfwriter 'gelfwriter' do
   host '127.0.0.1'
   port 12201
   source 'icinga2'
+end
+
+icinga2_feature 'command'
+
+icinga2_service 'base-service' do
+  template true
+  max_check_attempts 3
+  check_interval '10s'
+  retry_interval '5s'
+end
+
+icinga2_host 'webserver' do
+  address '10.0.0.11'
+  display_name 'webserver'
+  max_check_attempts 5
+  check_interval '10s'
+  retry_interval '5s'
+  check_command 'hostalive'
+  custom_vars :monitor => true
+end
+
+icinga2_applyservice 'check-http' do
+  import 'base-service'
+  check_command 'http'
+  display_name 'HTTP'
+  assign_where ['host.vars.monitor']
 end
