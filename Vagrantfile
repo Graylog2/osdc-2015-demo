@@ -30,6 +30,11 @@ Vagrant.configure(2) do |config|
       chef.add_recipe 'osdc-2015-demo::graylog'
       chef.add_recipe 'osdc-2015-demo::icinga2'
     end
+
+    # https://github.com/mitchellh/vagrant/issues/5199#issuecomment-87412634
+    machine.trigger.before [:reload, :halt], :stdout => true do
+      `rm -f .vagrant/machines/monitor/virtualbox/synced_folders`
+    end
   end
 
   config.vm.define 'webserver' do |machine|
@@ -48,6 +53,11 @@ Vagrant.configure(2) do |config|
       chef.add_recipe 'osdc-2015-demo::default'
       chef.add_recipe 'osdc-2015-demo::chef'
       chef.add_recipe 'osdc-2015-demo::webserver'
+    end
+
+    # https://github.com/mitchellh/vagrant/issues/5199#issuecomment-87412634
+    machine.trigger.before [:reload, :halt], :stdout => true do
+      `rm -f .vagrant/machines/webserver/virtualbox/synced_folders`
     end
   end
 end
