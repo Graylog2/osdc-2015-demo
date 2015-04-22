@@ -7,7 +7,7 @@ directory '/var/www/webapp' do
 end
 
 file '/var/www/webapp/index.html' do
-  content '<html><head><title>Hello OSDC!</title></head><body>Hello OSDC 2015!</body></html>'
+  content '<html><head><title>Hello OSDC!</title></head><body><h1>Hello OSDC 2015!</h1></body></html>'
 end
 
 file '/etc/apache2/sites-enabled/000-default.conf' do
