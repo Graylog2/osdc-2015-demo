@@ -22,3 +22,14 @@ $ vagrant up webserver
 |---------|-------------------------------|----------|----------|---------------------------------|
 | Graylog | http://localhost:9000/        | admin    | admin    | -                               |
 | Icinga2 | http://localhost:8080/icinga/ | admin    | admin    | Needs manual setup via browser! |
+| Webapp  | http://localhost:8081/        | -        | -        | -                               |
+
+## Usage
+
+There is a script to run chef-client on `webserver`.
+Just login to `webserver` via `vagrant ssh webserver` and execute
+`/vagrant/run-chef-client.sh` to trigger a Chef run.
+
+The webapp cookbook can be found in `cookbooks/webapp`. Tweak that
+to see the different results in Graylog.
+Also try to break it to see errors in Graylog as well.
