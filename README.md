@@ -24,6 +24,13 @@ $ vagrant up webserver
 | Icinga2 | http://localhost:8080/icinga/ | admin    | admin    | Needs manual setup via browser! |
 | Webapp  | http://localhost:8081/        | -        | -        | -                               |
 
+You have to manually set up the Icingaweb2 app by visiting the URL and
+answering some questions. You can mostly just use the defaults.
+
+Find database credentials and database names in `chef.json` and make
+sure to use `127.0.0.1` instead of `localhost` for the database server
+setting!
+
 ## Usage
 
 There is a script to run chef-client on `webserver`.
